@@ -27,7 +27,7 @@ public class City {
         Elements info = city.select("td");
 
         if (info.size() == INFO_SIZE) {
-            Element anchor = info.get(1).select("a").get(0);я
+            Element anchor = info.get(1).select("a").get(0);
             Element anchor1 = info.get(2).select("a").get(0);
             Element anchor2 = info.get(3);
             Element anchor3 = info.get(4).select("a").get(0);
