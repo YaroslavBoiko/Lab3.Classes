@@ -14,12 +14,21 @@ public class Coordinates {
         @SneakyThrows
         public static double[] Coordinat(String url) {
             Document doc = Jsoup.connect(url).get();
-            Element anchor = doc.getElementsByClass("geo").get(0);
-            String [] array1 = anchor.text().replaceAll(";", "").split(" ");
-            String Lat = array1[0];
-            String Long = array1[1];
-            double[] result = {Double.valueOf(Lat),Double.valueOf(Long)};
-            return result;
+            Element anchor = null;
+            
+            
+            if (doc.getElementsByClass("geo").size() > 0) {
+                
+                anchor = doc.getElementsByClass("geo").get(0);
+                String [] array1 = anchor.text().replaceAll(";", "").split(" ");
+                String Lat = array1[0];
+                String Long = array1[1];
+                double[] result = {Double.valueOf(Lat),Double.valueOf(Long)};
+                return result;
+            } else {
+                return null;
+            }
+            
 
     }
 
